@@ -1,6 +1,6 @@
 input = open('input.txt').readlines()
 
-letters = {
+words_to_number = {
     'one': 1,
     'two': 2,
     'three': 3,
@@ -20,11 +20,11 @@ def get_max_number_string_from_index(line: str, index: int, account_number_words
     if not account_number_words:
         return None
 
-    for key in reversed(letters.keys()):
+    for key in reversed(words_to_number.keys()):
         if len(key) > len(line) - index:
             continue
         if line[index:(index + len(key))] == key:
-            return str(letters[key])
+            return str(words_to_number[key])
     return None
 
 
