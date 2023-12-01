@@ -13,7 +13,7 @@ letters = {
 }
 
 
-def get_max_number_from_index(line, index, account_number_words):
+def get_max_number_string_from_index(line: str, index: int, account_number_words: bool):
     if line[index].isnumeric():
         return line[index]
 
@@ -24,31 +24,31 @@ def get_max_number_from_index(line, index, account_number_words):
         if len(key) > len(line) - index:
             continue
         if line[index:(index + len(key))] == key:
-            return letters[key]
+            return str(letters[key])
     return None
 
 
-def get_num_pair(account_number_words):
+def get_num_pairs(account_number_words: bool) -> list[int]:
     nums = []
     for line in input:
-        first, last = None, None
+        first = last = None
         i = 0
 
         while first is None:
-            first = get_max_number_from_index(line, i, account_number_words)
+            first = get_max_number_string_from_index(line, i, account_number_words)
             i += 1 if first is None else 0
 
         for j in range(i, len(line)):
-            found_num = get_max_number_from_index(line, j, account_number_words)
-            last = str(found_num) if found_num is not None else last
+            found_num_string = get_max_number_string_from_index(line, j, account_number_words)
+            last = found_num_string if found_num_string is not None else last
 
-        nums.append(int(str(first) + last))
+        nums.append(int(first + last))
     return nums
 
 
-# Task 1
-print(sum(get_num_pair(False)))
+# Part 1
+print(sum(get_num_pairs(False)))
 
-# Task 2
-print(sum(get_num_pair(True)))
+# Part 2
+print(sum(get_num_pairs(True)))
 
