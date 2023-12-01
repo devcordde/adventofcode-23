@@ -10,9 +10,9 @@ Hier ist eine Liste mit allen von Beitragenden verwendeten Programmiersprachen u
 
 Here is a list of all programming languages used by the contributors and the days that were solved with them:
 
-| Day | Kotlin | Java | Python | Rust | C | 
-|-----|--------|------|--------|------|---|
-| 01  | ✅      | ✅    | ✅      | ✅    | ✅ |
+| Day/Lang                     | Java | Python | Kotlin | Rust |
+|------------------------------|------|--------|--------|------|
+| 01 - ???        | ❌    |  ❌ | ❌ | ❌ |
 
 <!-- | XX - Day | ❌  | ❌     | ❌     | ❌  | ❌     | ❌   | ❌   | ❌  | ❌   | ❌   | ❌   | ❌     | ❌  | ❌      | ❌         | ❌   | ❌      | ❌         | ❌    | ❌  | ❌    | -->
 
