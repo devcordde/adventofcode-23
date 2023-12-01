@@ -1,6 +1,6 @@
 // Made using the Deno.land runtime. The utils.ts file can be found in /shared/zFlxw.
 
-import { readFileLines } from '../utils.ts';
+import { readFileLines } from '../../../shared/zFlxw/utils.ts';
 
 export function day01_01() {
   const lines = readFileLines('day01/input.txt');
