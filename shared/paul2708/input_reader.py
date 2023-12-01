@@ -12,9 +12,20 @@ def read_ints(day, example=None):
     return [int(line) for line in read_plain_input(day, example)]
 
 
-def read_regex(pattern: str, transformation=lambda x: x, day=1, example=None):
+def read_regex(pattern: str, transformation=None, day=1, example=None):
     result = []
     for line in read_plain_input(day, example):
-        result.append(transformation(*re.search(pattern, line).groups()))
+        groups = re.search(pattern, line).groups()
+        if transformation is not None:
+            result.append(transformation(*groups))
+        else:
+            if len(groups) == 1:
+                result.append(groups[0])
+            else:
+                result.append(groups)
 
     return result
+
+
+def flatten(list_of_lists):
+    return [item for single_list in list_of_lists for item in single_list]
