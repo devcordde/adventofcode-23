@@ -2,8 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define file "../../../../prompts/01input.txt" 
-#define testfile "../../../../prompts/01test.txt"
+#define file "./01input.txt" 
 #define LINE_SIZE 128
 #define LINES 1000
 
