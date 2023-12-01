@@ -3,7 +3,7 @@ const fs = require('fs');
 const NUMBERS = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
 function main() {
-    let content = fs.readFileSync('../../input.txt', 'utf-8');
+    let content = fs.readFileSync('input.txt', 'utf-8');
 
     console.log(`Ergebnis aus Part (1): ${content.split('\n').map(line => findFirstNumber(line) + findLastNumber(line)).reduce((acc, curr) => acc + curr, 0)}`);
 
