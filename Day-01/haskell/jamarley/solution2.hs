@@ -21,12 +21,8 @@ wordReplace word = case word of
         _ -> word
 -- This is so fucking hacky what has my life even become
 
-containsNumberWord :: String -> Bool
-containsNumberWord str = any (`elem` numberWords) (wordsBy (not . isLetter) str)
-
 replaceNumberWords :: String -> String
 replaceNumberWords content = unpack $ foldr (\w acc -> replace (pack w) (pack $ wordReplace w) acc) (pack content) numberWords
-
 
 main :: IO ()
 main = do
