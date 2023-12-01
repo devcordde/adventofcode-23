@@ -1,15 +1,8 @@
-numbers = [int(e[0] + e[-1]) for e in [[c for c in e if c.isnumeric()] for e in open("input.txt").readlines()]]
-print(f"Part 1 {sum(numbers)}")
+p1 = sum([int(e[0] + e[-1]) for e in [[c for c in e if c.isnumeric()] for e in open('input.txt').readlines()]])
+print(f"Part 1 {p1}")
 
-mapping = {"one": "1",
-           "two": "2",
-           "three": "3",
-           "four": "4",
-           "five": "5",
-           "six": "6",
-           "seven": "7",
-           "eight": "8",
-           "nine": "9"}
+num = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+mapping = {e: str(i) for i, e in enumerate(num, start=1)}
 
 
 def transform(line: str) -> list[str]:
@@ -26,7 +19,5 @@ def transform(line: str) -> list[str]:
     return res
 
 
-numbers = [transform(e) for e in open("input.txt").readlines()]
-numbers = [int(e[0] + e[-1]) for e in numbers]
-
-print(f"Part 2 {sum(numbers)}")
+p2 = sum([int(e[0] + e[-1]) for e in [transform(e) for e in open("input.txt").readlines()]])
+print(f"Part 2 {p2}")
