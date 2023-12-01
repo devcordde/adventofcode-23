@@ -9,7 +9,7 @@ public class Day1 {
     private static final String[] NUMBERS = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
     public static void main(String[] args) throws IOException {
-        String content = Files.readString(Path.of("./Day-01/java/rechergg/input.txt"));
+        String content = Files.readString(Path.of("input.txt"));
 
         System.out.printf("Ergebnis aus Part (1): %d%n", content.lines().mapToInt(line -> findFirstNumber(line) + findLastNumber(line)).sum());
 
