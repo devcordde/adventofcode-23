@@ -1,14 +1,14 @@
 USING: io.encodings.utf8 io.files io.pathnames command-line ascii namespaces math.parser math sequences strings arrays prettyprint kernel ;
 IN: aoc.day1
 
-SYMBOL: digit-text
-{ "one" "two" "three" "four" "five" "six" "seven" "eight" "nine" } [ CHAR: 1 + 2array ] map-index digit-text set
+MEMO: digit-text
+    { "one" "two" "three" "four" "five" "six" "seven" "eight" "nine" } [ CHAR: 1 + 2array ] map-index ;
 
 : extract-digits-1 ( str -- seq )
     [ digit? ] filter ;
 
 : find-written-digit ( str -- x/f )
-    [ swap first head? ] curry digit-text get swap map-find nip ;
+    [ swap first head? ] curry digit-text swap map-find nip ;
 
 : extract-digits-aux ( seq str -- seq )
     dup empty?
