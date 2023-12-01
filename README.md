@@ -10,9 +10,9 @@ Hier ist eine Liste mit allen von Beitragenden verwendeten Programmiersprachen u
 
 Here is a list of all programming languages used by the contributors and the days that were solved with them:
 
-| Day/Lang                     | Java | Python | Kotlin | Rust |
-|------------------------------|------|--------|--------|------|
-| 01 - ???        | ❌    |  ❌ | ❌ | ❌ |
+| Day | Kotlin | Java | Python | Rust | C | 
+|-----|--------|------|--------|------|---|
+| 01  | ✅      | ✅    | ✅      | ✅    | ✅ |
 
 <!-- | XX - Day | ❌  | ❌     | ❌     | ❌  | ❌     | ❌   | ❌   | ❌  | ❌   | ❌   | ❌   | ❌     | ❌  | ❌      | ❌         | ❌   | ❌      | ❌         | ❌    | ❌  | ❌    | -->
 
@@ -21,12 +21,12 @@ Here is a list of all programming languages used by the contributors and the day
 (✅) = Erster Teil gelöst / First part solved
 
 ## Repository-Aufbau / Repository Structure
-- Day-`XX`       (1)
-    - `language`        (2)
-        - `user`    (3)
+- Day-`XX`       (1) 
+  - `language`        (2)
+    - `user`    (3)
 - shared        (4)
-    - `user`
-        - \*
+  - `user`
+    - \*    
 
 (1) Jeder Tag hat einen eigenen Ordner, der nach dem Schema `Day-XX` benannt ist, also beispielsweise `Day-09`.
 
@@ -40,7 +40,7 @@ Here is a list of all programming languages used by the contributors and the day
 
 (1) Every day has its own directory named after the scheme `Day-XX`, so e.g. `Day-09`.
 
-(2) Each day has a subfolder for every programming language used by contributors to solve that day. The name should be the lowercase name of the language, e.g. `java`.
+(2) Each day has a subfolder for every programming language used by contributors to solve that day. The name should be the lowercase name of the language, e.g. `java`. 
 
 (3) Because multiple contributors may solve the same day in the same programming language, each user should create a directory for their solution. It contains the source code which solves both parts of the challenge at best.
 
@@ -56,13 +56,13 @@ Wenn du zu den Lösungen beitragen möchtest, hast du zwei Optionen: **Selbst mi
 3. Füge deine Lösungen hinzu und bearbeite sie - **beachte dabei die [Ordnerstruktur](#repository-aufbau--repository-structure)**
 4. Bearbeite **nicht** die README! Die Tabelle wird von uns ergänzt.
 5. Mache eine Pull Request wann immer du
-    - neue funktionierende Lösungen hast
-    - Lust drauf hast (du musst nicht jeden Tag eine Pull Request machen, sondern kannst dir auch Zeit damit lassen)
+   - neue funktionierende Lösungen hast
+   - Lust drauf hast (du musst nicht jeden Tag eine Pull Request machen, sondern kannst dir auch Zeit damit lassen)
 
 **Bitte achte darauf, dass die Lösungen nicht deine kompletten IDE-Dateien enthalten, sondern ausschließlich den relevanten Quellcode zur Lösung des Problems!**
 
 ### Lösungen an das Management geben
 Schicke sie an einen der folgenden DevCord-User mit Informationen zu Sprache, Tag, evtl. benötigten zusätzlichen Dateien und Namen:
-- `das_`
-- `johnny_jayjay`
+   - `das_`
+   - `johnny_jayjay`
    
