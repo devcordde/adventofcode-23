@@ -1,8 +1,10 @@
+! SPDX-License-Identifier: 0BSD
 USING: io.encodings.utf8 io.files io.pathnames command-line ascii namespaces fry memoize math.parser math sequences strings arrays prettyprint kernel ;
 IN: aoc.day1
 
 MEMO: digit-text ( -- seq )
-    { "one" "two" "three" "four" "five" "six" "seven" "eight" "nine" } [ CHAR: 1 + 2array ] map-index ;
+    { "one" "two" "three" "four" "five" "six" "seven" "eight" "nine" }
+    [ CHAR: 1 + 2array ] map-index ;
 
 : extract-digits-1 ( str -- seq )
     [ digit? ] filter ;
@@ -25,7 +27,7 @@ MEMO: digit-text ( -- seq )
     [ first ] [ last ] bi 2array >string string>number ;
 
 : calibration-sum ( seq extract -- n )
-    '[ @ first-last-num ]  map sum ; inline
+    '[ @ first-last-num ] map sum ; inline
 
 command-line get first utf8 file-lines dup
 
