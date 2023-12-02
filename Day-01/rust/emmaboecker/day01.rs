@@ -3,7 +3,7 @@ const WRITTEN_NUMBERS: [&str; 9] = [
 ];
 
 pub fn main() {
-    let input = include_str!("../../input/day01.txt");
+    let input = include_str!("input.txt");
     println!("Part 1: {}", find_numbers(input, false));
     println!("Part 2: {}", find_numbers(input, true));
 }
