@@ -1,5 +1,5 @@
 pub fn main() {
-    let input = include_str!("../../input/day02.txt").lines();
+    let input = include_str!("input.txt").lines();
 
     let games = input.map(|game| {
         let (id, info) = game.split_once(": ").unwrap();
