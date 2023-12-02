@@ -14,11 +14,9 @@ fn find_numbers(input: &str, written: bool) -> u32 {
         .map(|line| {
             let valid = find_valid(line, written);
             format!("{}{}", valid.first().unwrap(), valid.last().unwrap())
-                .parse()
+                .parse::<u32>()
                 .unwrap()
         })
-        .collect::<Vec<u32>>()
-        .iter()
         .sum()
 }
 
