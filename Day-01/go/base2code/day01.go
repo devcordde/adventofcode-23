@@ -20,7 +20,7 @@ var translate = map[string]string{
 }
 
 func main() {
-	filename := "input/input-1.txt"
+	filename := "input.txt"
 	fmt.Println("Part 1:", day1part1(readAllLines(filename)))
 }
 
