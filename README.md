@@ -10,10 +10,10 @@ Hier ist eine Liste mit allen von Beitragenden verwendeten Programmiersprachen u
 
 Here is a list of all programming languages used by the contributors and the days that were solved with them:
 
-| Day/Lang         | Java | Python | Kotlin | Rust | C | Elixir | Factor | Haskell | JavaScript | Perl | TypeScript |
-|------------------|------|--------|--------|------|---|--------|--------|---------|------------|------|------------|
-| 01 - Trebuchet?! | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          |
-| 02 - ???         | ❌    | ❌      | ❌      | ❌    | ❌ | ❌      | ❌      | ❌       | ❌          | ❌    | ❌          |
+| Day/Lang         | Java | Python | Kotlin | Rust | C | Elixir | Factor | Haskell | JavaScript | Perl | TypeScript | Go |
+|------------------|------|--------|--------|------|---|--------|--------|---------|------------|------|------------|----|
+| 01 - Trebuchet?! | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          | ✅  |
+| 02 - ???         | ❌    | ❌      | ❌      | ❌    | ❌ | ❌      | ❌      | ❌       | ❌          | ❌    | ❌          | ❌  |
 
 <!-- | XX - Day | ❌  | ❌     | ❌     | ❌  | ❌     | ❌   | ❌   | ❌  | ❌   | ❌   | ❌   | ❌     | ❌  | ❌      | ❌         | ❌   | ❌      | ❌         | ❌    | ❌  | ❌    | -->
 
