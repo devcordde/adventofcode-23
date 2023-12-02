@@ -29,22 +29,33 @@ pub fn main() {
         }
     });
 
-    let part1: u32 = games.clone().filter(|game| {
-        !game
-            .subsets
-            .iter()
-            .any(|subset| subset.red > 12 || subset.green > 13 || subset.blue > 14)
-    }).map(|game| game.id).sum();
+    let part1: u32 = games
+        .clone()
+        .filter(|game| {
+            !game
+                .subsets
+                .iter()
+                .any(|subset| subset.red > 12 || subset.green > 13 || subset.blue > 14)
+        })
+        .map(|game| game.id)
+        .sum();
 
     println!("Part 1: {}", part1);
 
-    let part2: u32 = games.map(|game| {
-        let max_red = game.subsets.iter().map(|subset| subset.red).max().unwrap();
-        let max_green = game.subsets.iter().map(|subset| subset.green).max().unwrap();
-        let max_blue = game.subsets.iter().map(|subset| subset.blue).max().unwrap();
+    let part2: u32 = games
+        .map(|game| {
+            let max_red = game.subsets.iter().map(|subset| subset.red).max().unwrap();
+            let max_green = game
+                .subsets
+                .iter()
+                .map(|subset| subset.green)
+                .max()
+                .unwrap();
+            let max_blue = game.subsets.iter().map(|subset| subset.blue).max().unwrap();
 
-        max_red * max_green * max_blue
-    }).sum();
+            max_red * max_green * max_blue
+        })
+        .sum();
 
     println!("Part 2: {}", part2);
 }
