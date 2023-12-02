@@ -1,5 +1,6 @@
 ! SPDX-License-Identifier: 0BSD
-USING: io.encodings.utf8 io.files io.pathnames command-line ascii namespaces fry memoize math.parser math sequences strings arrays prettyprint kernel ;
+USING: io.encodings.utf8 io.files io.pathnames command-line ascii namespaces
+fry math.parser math sequences strings arrays prettyprint kernel ;
 IN: aoc.day1
 
 MEMO: digit-text ( -- seq )
@@ -29,7 +30,7 @@ MEMO: digit-text ( -- seq )
 : calibration-sum ( seq extract -- n )
     '[ @ first-last-num ] map sum ; inline
 
-command-line get first utf8 file-lines dup
+command-line get first <pathname> absolute-path pathname> utf8 file-lines dup
 
 [ extract-digits-1 ] calibration-sum .
 [ extract-digits-2 ] calibration-sum .
