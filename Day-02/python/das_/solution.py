@@ -11,7 +11,7 @@ for g in open("input.txt"):
     for draw in draws:
         for color in colors.keys():
             if draw.count(color) > 0:
-                number = int(re.search("(\\d+) " + color, draw).group(1))
+                number = int(re.search(f"(\\d+) {color}", draw).group(1))
                 colors[color] = max(colors[color], number)
 
     # Part 1
