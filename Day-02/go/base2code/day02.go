@@ -11,7 +11,7 @@ import (
 func main() {
 	filename := "input.txt"
 	fmt.Println("Part 1:", day2part1(utils.ReadAllLines(filename)))
-	fmt.Println("Part 2:", day2part2(utils.ReadAllLines(filename))) // 2286 - too low
+	fmt.Println("Part 2:", day2part2(utils.ReadAllLines(filename)))
 }
 
 func day2part1(lines []string) string {
@@ -49,7 +49,6 @@ func day2part2(lines []string) string {
 
 	for _, line := range lines {
 		split1 := strings.Split(line, ":")
-		//gameId := strings.Split(split1[0], " ")[1]
 
 		sets := strings.Split(split1[1], ";")
 
