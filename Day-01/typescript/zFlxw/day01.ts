@@ -3,7 +3,7 @@
 import { readFileLines } from '../../../shared/zFlxw/utils.ts';
 
 export function day01_01() {
-  const lines = readFileLines('day01/input.txt');
+  const lines = readFileLines('input.txt');
   let totalSum = 0;
   for (const line of lines) {
     const digits: number[] = line.split('').filter(char => !isNaN(+char)).map(digit => +digit);
