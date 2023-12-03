@@ -6,3 +6,4 @@ __pycache__
 .nrepl-port
 .lsp/
 *.txt
+venv/
