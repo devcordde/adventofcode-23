@@ -12,7 +12,7 @@ Here is a list of all programming languages used by the contributors and the day
 
 | Day/Lang            | Java | Python | Kotlin | Rust | C | Elixir | Factor | Haskell | JavaScript | Perl | TypeScript | Go | Ruby |
 |---------------------|------|--------|--------|------|---|--------|--------|---------|------------|------|------------|----|------|
-| 01 - Trebuchet?!    | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          | ✅  | ✅    |
+| 01 - Trebuchet?!    | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          | (✅)  | ✅    |
 | 02 - Cube Conundrum | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          | ✅  | ✅    |
 | 03 - ???            | ❌    | ❌      | ❌      | ❌    | ❌ | ❌      | ❌      | ❌       | ❌          | ❌    | ❌          | ❌  | ❌    |
 
