@@ -9,13 +9,13 @@ public class Solution {
         lines.add(0, ".".repeat(lines.get(0).length()));
         lines.add(".".repeat(lines.get(0).length()));
 
-        var middleBlockers = new ArrayList<OrderedTriple>();
+        var orderedTriples = new ArrayList<OrderedTriple>();
         for (int i = 1; i < lines.size() - 1; i++) {
-            middleBlockers.add(new OrderedTriple(lines.get(i - 1), lines.get(i), lines.get(i + 1)));
+            orderedTriples.add(new OrderedTriple(lines.get(i - 1), lines.get(i), lines.get(i + 1)));
         }
 
-        System.out.println("Part 1: " + middleBlockers.stream().mapToInt(Main::part1).sum());
-        System.out.println("Part 2: " + middleBlockers.stream().mapToInt(Main::part2).sum());
+        System.out.println("Part 1: " + orderedTriples.stream().mapToInt(Main::part1).sum());
+        System.out.println("Part 2: " + orderedTriples.stream().mapToInt(Main::part2).sum());
     }
 
     private static int part1(OrderedTriple orderedTriple) {
