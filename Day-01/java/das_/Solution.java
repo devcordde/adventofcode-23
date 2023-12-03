@@ -3,7 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-public class Main {
+public class Solution {
     private static final List<String> numbers = List.of("one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
 
     public static void main(String[] args) throws IOException {
