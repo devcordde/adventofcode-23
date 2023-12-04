@@ -14,9 +14,9 @@ IN: aoc.day4
     [ 1 - 2^ ] map sum ;
 
 : card-sum ( cards -- n )
-    [ 1 2array ] map
-    [ dup dup '[ [ first2 swap ] dip [ + _ length 1 - min ] keep swap (a..b] _ rot '[ first2 _ + 2array ] change-nths ] each-index ]
-    keep [ second ] map sum ;
+    dup [ length ] [ last ] bi + 1 <array>
+    [ [ unclip-slice swap ] dip cut-slice [ swap '[ _ + ] map ] dip append ]
+    accumulate [ first ] map sum nip ;
 
 command-line get first <pathname> absolute-path pathname> utf8 file-lines [ parse-card ] map dup
 point-sum .
