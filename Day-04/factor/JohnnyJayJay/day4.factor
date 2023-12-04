@@ -1,7 +1,8 @@
 ! SPDX-License-Identifier: 0BSD
-USING: combinators.smart command-line hashtables io
-io.encodings.utf8 io.files io.pathnames kernel math math.order math.parser
-namespaces prettyprint splitting.extras splitting ranges regexp sequences sets strings ;
+USING: arrays combinators.smart command-line hash-sets
+hashtables io io.encodings.utf8 io.files io.pathnames kernel
+math math.order math.parser namespaces prettyprint ranges regexp
+sequences sets splitting splitting.extras strings ;
 IN: aoc.day4
 
 ! card string -> winning number amount
@@ -15,8 +16,8 @@ IN: aoc.day4
 
 : card-sum ( cards -- n )
     dup [ length ] [ last ] bi + 1 <array>
-    [ [ unclip-slice swap ] dip cut-slice [ swap '[ _ + ] map ] dip append ]
-    accumulate [ first ] map sum nip ;
+    [ [ unclip-slice swap ] dip cut-slice [ swap '[ _ + ] map ] dip append ] accumulate
+    [ first ] map sum nip ;
 
 command-line get first <pathname> absolute-path pathname> utf8 file-lines [ parse-card ] map dup
 point-sum .
