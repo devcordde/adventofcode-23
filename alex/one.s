@@ -1,17 +1,13 @@
-extern exit, mmap, putlong, newline, findc, atol, alloc, findnl, isnum, findnotnum
+extern exit, mmap, putlong, newline, atol, skipws, findws
 
 section .text
 
-%define accumulator r15
-%define parsed rbx
-%define currChar r12
-%define endOfFile [rsp + 0]
-%define size [rsp + 8]
-%define currCell r13
-%define numLength r15
-%define x r13
-%define y r14
-%define sizer r12
+%define accumulator [rsp + 0]
+%define curr r12
+%define endOfFile [rsp + 8]
+%define endOfWinning r13
+%define numMatching r14
+%define numMatchingb r14b
 
 global _start:function
 _start:
@@ -20,154 +16,97 @@ _start:
 
   sub rsp, 2 * 8
 
-  mov currChar, rax
-  lea rdi, [rax + rdx]
-  mov endOfFile, rdi
+  mov curr, rax
+  add rax, rdx
+  mov endOfFile, rax
 
-  mov rdi, currChar
-  call findnl
-  sub rax, rdi
-  mov size, rax
+  mov QWORD accumulator, 0
 
-  mov rdi, size
-  add rdi, 2
-  imul rdi, rdi
-  imul rdi, 2
-  mov r14, rdi
-  call alloc
+.lineLoop:
 
-  mov parsed, rax
+  mov endOfWinning, winning
+  mov numMatching, 0
 
-  mov rdi, rax
-  mov rcx, r14
-  mov al, 0
-  rep stosb
+  add curr, 4
 
-  add parsed, size
-  add parsed, size
-  add parsed, 6
+  mov rdi, curr
+  call skipws
+  mov curr, rax
 
-  mov currCell, parsed
+  mov rdi, curr
+  call findws
+  mov curr, rax
 
-.parseLoop:
+.readWinningLoop:
 
-  cmp BYTE [currChar], 0xa
-  jne .notNewline
+  mov rdi, curr
+  call skipws
+  mov curr, rax
 
-  inc currChar
-  add currCell, 4
+  cmp BYTE [curr], '|'
+  je .endReadWinningLoop
 
-  jmp .continueLineLoop
-.notNewline:
-
-  cmp BYTE [currChar], '.'
-  jne .notDot
-
-  inc currChar
-  add currCell, 2
-
-  jmp .continueLineLoop
-.notDot:
-
-  mov dil, [currChar]
-  call isnum
-  test al, al
-  jz .notNumber
-
-  mov rdi, currChar
-  call findnotnum
-
-  mov numLength, rax
-  sub numLength, currChar
-  
-  mov rdi, currChar
+  mov rdi, curr
+  call findws
   mov rsi, rax
+  mov curr, rax
+  call atol
+  mov [endOfWinning], al
+  inc endOfWinning
+  
+  jmp .readWinningLoop
+
+.endReadWinningLoop:
+
+  inc curr
+
+.readHaveLoop:
+
+  mov rdi, curr
+  call skipws
+  mov curr, rax
+
+  mov rdi, curr
+  call findws
+  mov rsi, rax
+  mov curr, rax
   call atol
 
-.storeLoop:
+  mov rdi, winning
 
-  mov [currCell], ax
-  add currCell, 2
-  inc currChar
+.checkWinningLoop:
 
-  dec numLength
+  cmp [rdi], al
+  jne .continueCheckWinningLoop
 
-  test numLength, numLength
-  jnz .storeLoop
+  inc numMatching
+  jmp .endCheckWinningLoop
 
-  jmp .continueLineLoop
-.notNumber:
+.continueCheckWinningLoop:
+  inc rdi
 
-  mov al, [currChar]
-  movzx ax, al
-  or ax, 0x8000
-  mov [currCell], ax
-  inc currChar
-  add currCell, 2
+  cmp rdi, endOfWinning
+  jb .checkWinningLoop
+.endCheckWinningLoop:
 
-.continueLineLoop:
+  cmp BYTE [curr], 0xa
+  jne .readHaveLoop
 
-  cmp currChar, endOfFile
-  jb .parseLoop
+  test numMatching, numMatching
+  jz .noneToAdd
 
-  mov accumulator, 0
-  mov sizer, size
-
-.yLoop:
-
-  mov x, 0
-
-.xLoop:
-
-  bt WORD [parsed], 15
-  jnc .notSymbol
-
-  movzx rax, WORD [parsed - 2]
-  add accumulator, rax
-  movzx rax, WORD [parsed + 2]
-  add accumulator, rax
-  mov rdi, sizer
-  neg rdi
-  movzx rax, WORD [parsed + 2 * rdi - 4]
-  add accumulator, rax
-  movzx rax, WORD [parsed + 2 * sizer + 4]
+  dec numMatching
+  mov cl, numMatchingb
+  mov rax, 1
+  shl rax, cl
   add accumulator, rax
 
-  mov ax, WORD [parsed + 2 * rdi - 4]
-  test ax, ax
-  jnz .skipTop
+.noneToAdd:
 
-  movzx rax, WORD [parsed + 2 * rdi - 6]
-  add accumulator, rax
-  movzx rax, WORD [parsed + 2 * rdi - 2]
-  add accumulator, rax
+  inc curr
 
-.skipTop:
-
-  mov ax, WORD [parsed + 2 * sizer + 4]
-  test ax, ax
-  jnz .skipBottom
-
-  movzx rax, WORD [parsed + 2 * sizer + 2]
-  add accumulator, rax
-  movzx rax, WORD [parsed + 2 * sizer + 6]
-  add accumulator, rax
-
-.skipBottom:
-
-.notSymbol:
-
-  inc x
-  add parsed, 2
-
-  cmp x, sizer
-  jb .xLoop
-
-  inc y
-  add parsed, 4
-
-  cmp y, sizer
-  jb .yLoop
+  cmp curr, endOfFile
+  jb .lineLoop
 
   mov rdi, accumulator
   call putlong
@@ -175,3 +114,7 @@ _start:
 
   mov dil, 0
   call exit
+
+section .bss
+
+winning: resb 10

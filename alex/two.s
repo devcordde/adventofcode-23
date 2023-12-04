@@ -1,251 +1,136 @@
-extern exit, mmap, putlong, newline, findc, atol, alloc, findnl, isnum, findnotnum
+extern exit, mmap, putlong, newline, atol, skipws, findws
 
 section .text
 
-%define accumulator r15
-%define parsed rbx
-%define currChar r12
+%define curr r12
 %define endOfFile [rsp + 0]
-%define size [rsp + 8]
-%define currCell r13
-%define numLength r15
-%define x r13
-%define y r14
-%define sizer r12
-%define negsizer rdi
+%define endOfWinning r13
+%define numMatching r14
+%define numMatchingb r14b
+%define cardNum r15
+%define accumulator [rsp + 8]
 
 global _start:function
 _start:
   mov rdi, [rsp + 16]
   call mmap
 
-  sub rsp, 8 * 8
+  sub rsp, 2 * 8
 
-  mov currChar, rax
-  lea rdi, [rax + rdx]
-  mov endOfFile, rdi
+  mov curr, rax
+  add rax, rdx
+  mov endOfFile, rax
 
-  mov rdi, currChar
-  call findnl
-  sub rax, rdi
-  mov size, rax
+  mov cardNum, 0
 
-  mov rdi, size
-  add rdi, 2
-  imul rdi, rdi
-  shl rdi, 1
-  mov r14, rdi
-  call alloc
+.lineLoop:
 
-  mov parsed, rax
+  mov endOfWinning, winning
+  mov numMatching, 0
 
-  mov rdi, rax
-  mov rcx, r14
-  shr rcx, 1
-  mov ax, 0x8000
-  rep stosw
+  add curr, 4
 
-  add parsed, size
-  add parsed, size
-  add parsed, 6
+  mov rdi, curr
+  call skipws
+  mov curr, rax
 
-  mov currCell, parsed
+  mov rdi, curr
+  call findws
+  mov curr, rax
 
-.parseLoop:
+.readWinningLoop:
 
-  cmp BYTE [currChar], 0xa
-  jne .notNewline
+  mov rdi, curr
+  call skipws
+  mov curr, rax
 
-  inc currChar
-  add currCell, 4
+  cmp BYTE [curr], '|'
+  je .endReadWinningLoop
 
-  jmp .continueLineLoop
-.notNewline:
-
-  cmp BYTE [currChar], '.'
-  jne .notDot
-
-  mov ax, 0x8000
-  mov [currCell], ax
-  inc currChar
-  add currCell, 2
-
-  jmp .continueLineLoop
-.notDot:
-
-  mov dil, [currChar]
-  call isnum
-  test al, al
-  jz .notNumber
-
-  mov rdi, currChar
-  call findnotnum
-
-  mov numLength, rax
-  sub numLength, currChar
-  
-  mov rdi, currChar
+  mov rdi, curr
+  call findws
   mov rsi, rax
+  mov curr, rax
+  call atol
+  mov [endOfWinning], al
+  inc endOfWinning
+  
+  jmp .readWinningLoop
+
+.endReadWinningLoop:
+
+  inc curr
+
+.readHaveLoop:
+
+  mov rdi, curr
+  call skipws
+  mov curr, rax
+
+  mov rdi, curr
+  call findws
+  mov rsi, rax
+  mov curr, rax
   call atol
 
-.storeLoop:
+  mov rdi, winning
 
-  mov [currCell], ax
-  add currCell, 2
-  inc currChar
+.checkWinningLoop:
 
-  dec numLength
+  cmp [rdi], al
+  jne .continueCheckWinningLoop
 
-  test numLength, numLength
-  jnz .storeLoop
+  inc numMatching
+  jmp .endCheckWinningLoop
 
-  jmp .continueLineLoop
-.notNumber:
+.continueCheckWinningLoop:
+  inc rdi
 
-  mov al, [currChar]
-  movzx ax, al
-  or ax, 0x8000
-  mov [currCell], ax
-  inc currChar
-  add currCell, 2
+  cmp rdi, endOfWinning
+  jb .checkWinningLoop
+.endCheckWinningLoop:
 
-.continueLineLoop:
+  cmp BYTE [curr], 0xa
+  jne .readHaveLoop
+  
+  mov [cardWins + cardNum * 8], numMatching
+  mov QWORD [cardCounts + cardNum * 8], 1
 
-  cmp currChar, endOfFile
-  jb .parseLoop
+  inc curr
+  inc cardNum
 
-  mov accumulator, 0
-  mov sizer, size
-  mov negsizer, sizer
-  neg negsizer
+  cmp curr, endOfFile
+  jb .lineLoop
 
-.yLoop:
+  mov QWORD accumulator, 0
 
-  mov x, 0
+  mov cardNum, 0
 
-.xLoop:
+.cardSummingLoop:
 
-  cmp WORD [parsed], '*' | 0x8000
-  jne .notGear
+  mov rax, [cardWins + cardNum * 8]
+  add rax, cardNum
 
-  mov rbp, 0
-  mov QWORD [rsp + 16], 1
-  mov QWORD [rsp + 24], 1
-  mov QWORD [rsp + 32], 1
-  mov QWORD [rsp + 40], 1
-  mov QWORD [rsp + 48], 1
-  mov QWORD [rsp + 56], 1
+  mov rsi, [cardCounts + cardNum * 8]
 
-  mov ax, [parsed + negsizer * 2 - 4]
-  test ax, ax
-  js .topNotNumber
+.cardAddingLoop:
+  cmp rax, cardNum
+  jbe .endCardAddingLoop
 
-  inc rbp
-  movzx rax, ax
-  mov [rsp + 16], rax
+  add [cardCounts + rax * 8], rsi
+  dec rax
+  jmp .cardAddingLoop
 
-  jmp .doneTop
-.topNotNumber:
+.endCardAddingLoop:
 
-  mov ax, [parsed + negsizer * 2 - 6]
-  test ax, ax
-  js .topLeftNotNumber
-
-  inc rbp
-  movzx rax, ax
-  mov [rsp + 16], rax
-
-.topLeftNotNumber:
-
-  mov ax, [parsed + negsizer * 2 - 2]
-  test ax, ax
-  js .topRightNotNumber
-
-  inc rbp
-  movzx rax, ax
-  mov [rsp + 24], rax
-
-.topRightNotNumber:
-
-.doneTop:
-
-  mov ax, [parsed + sizer * 2 + 4]
-  test ax, ax
-  js .bottomNotNumber
-
-  inc rbp
-  movzx rax, ax
-  mov [rsp + 32], rax
-
-  jmp .doneBottom
-.bottomNotNumber:
-
-  mov ax, [parsed + sizer * 2 + 2]
-  test ax, ax
-  js .bottomLeftNotNumber
-
-  inc rbp
-  movzx rax, ax
-  mov [rsp + 32], rax
-
-.bottomLeftNotNumber:
-
-  mov ax, [parsed + sizer * 2 + 6]
-  test ax, ax
-  js .bottomRightNotNumber
-
-  inc rbp
-  movzx rax, ax
-  mov [rsp + 40], rax
-
-.bottomRightNotNumber:
-
-.doneBottom:
-
-  mov ax, [parsed - 2]
-  test ax, ax
-  js .leftNotNumber
-
-  inc rbp
-  movzx rax, ax
-  mov [rsp + 48], rax
-
-.leftNotNumber:
-
-  mov ax, [parsed + 2]
-  test ax, ax
-  js .rightNotNumber
-
-  inc rbp
-  movzx rax, ax
-  mov [rsp + 56], rax
-
-.rightNotNumber:
-
-  cmp rbp, 2
-  jne .notGear
-
-  mov rax, [rsp + 16]
-  imul rax, [rsp + 24]
-  imul rax, [rsp + 32]
-  imul rax, [rsp + 40]
-  imul rax, [rsp + 48]
-  imul rax, [rsp + 56]
+  mov rax, [cardCounts + cardNum * 8]
   add accumulator, rax
 
-.notGear:
+  inc cardNum
 
-  inc x
-  add parsed, 2
-
-  cmp x, sizer
-  jb .xLoop
-
-  inc y
-  add parsed, 4
-
-  cmp y, sizer
-  jb .yLoop
+  mov rax, [cardCounts + cardNum * 8]
+  test rax, rax
+  jnz .cardSummingLoop
 
   mov rdi, accumulator
   call putlong
@@ -253,3 +138,9 @@ _start:
 
   mov dil, 0
   call exit
+
+section .bss
+
+winning: resb 10
+cardWins: resq 214
+cardCounts: resq 215
