@@ -26,7 +26,7 @@ public class Day04 {
         int checkedCards = 0;
         for (final Card card : cards) {
             final int occurrences = occurenceMap.getOrDefault(card.id, 0) + 1;
-            for (int i = 0; i < card.countWinningNumbers(); i++) {
+            for (int i = 0; i < card.winningNumbers(); i++) {
                 occurenceMap.compute(card.id + i + 1,
                         (k, v) -> v == null ? occurrences : v + occurrences);
             }
@@ -38,7 +38,8 @@ public class Day04 {
     private static Card parse(final String s) {
         final int id = Integer.parseInt(s.substring(5).split(":")[0].trim());
         final String[] numSplit = s.substring(s.indexOf(':') + 1).split("\\|");
-        return new Card(id, toSet(numSplit[0]), toSet(numSplit[1]));
+        final Set<Integer> winning = toSet(numSplit[0]);
+        return new Card(id, (int) toSet(numSplit[1]).stream().filter(winning::contains).count());
     }
 
     private static Set<Integer> toSet(final String s) {
@@ -51,14 +52,10 @@ public class Day04 {
         return Files.lines(Path.of("input.txt"));
     }
 
-    private record Card(int id, Set<Integer> winningNumbers, Set<Integer> numbers) {
-
-        public int countWinningNumbers() {
-            return (int) this.numbers.stream().filter(this.winningNumbers::contains).count();
-        }
+    private record Card(int id, int winningNumbers) {
 
         public int calculatePoints() {
-            return (int) Math.pow(2, this.countWinningNumbers() - 1);
+            return (int) Math.pow(2, this.winningNumbers() - 1);
         }
 
     }
