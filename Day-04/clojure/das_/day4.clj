@@ -26,12 +26,12 @@
 (defn intersection [s]
       (filter (set (first s)) (last s)))
 
-(defn x [y count]
+(defn associate-count [y count]
       (hash-map y count))
 
 (defn next-numbers [start, n, count]
       (->> (range start (+ start n))
-           (map #(x % count))
+           (map #(associate-count % count))
            (apply merge)))
 
 (defn calculate-score [card1, card2]
@@ -61,7 +61,8 @@
                         (map #(assoc-in % [:card-parts] (intersection (:card-parts %))))
                         (map #(assoc-in % [(:game-number %)] 1))
                         (map update-first-element)
-                        (reduce calculate-score)) :game-number :card-parts)
+                        (reduce calculate-score))
+                   :game-number :card-parts)
                (map val)
                (reduce +)))
 
