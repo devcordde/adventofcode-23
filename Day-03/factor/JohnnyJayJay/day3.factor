@@ -1,5 +1,7 @@
 ! SPDX-License-Identifier: 0BSD
-USING: accessors ranges combinators.smart sequences regexp strings math math.parser io io.encodings.utf8 io.files io.pathnames kernel prettyprint ;
+USING: ascii assocs combinators.smart command-line hashtables io
+io.encodings.utf8 io.files io.pathnames kernel math math.parser
+namespaces prettyprint ranges regexp sequences sets strings ;
 IN: aoc.day3
 
 : symbol? ( ch/f -- ? )
@@ -13,12 +15,20 @@ IN: aoc.day3
     -rot [ 1 - ] dip [a..b]
     cartesian-product concat ;
 
-: numbers ( line-idx grid -- seq )
-    2dup nth R/ \d+/ all-matching-slices -rot
-    '[ dup >slice< drop  _ block [ _ ?deep-nth symbol? ] any? [ string>number ] [ drop 0 ] if ] map ;
+: into-part-map ( line-idx grid part-map -- )
+    [ 2dup nth R/ \d+/ all-matching-slices -rot ] dip
+    '[ dup >slice< drop _ block [ _ ?deep-nth symbol? ] filter swap string>number _ swap
+       '[ _ [ _ suffix ] change-at ] each ] each ;
 
-: part-number-sum ( grid -- n )
-    dup '[ _ numbers sum nip ] map-index sum ;
+: part-map ( grid -- part-map )
+    H{ } clone [ dupd '[ _ _ into-part-map ] [ length [0..b) ] dip each ] keep ;
 
-command-line get first <pathname> absolute-path pathname> utf8 file-lines dup
+: part-number-sum ( part-map -- n )
+    values concat members sum ;
+
+: gear-ratio-sum ( part-map grid -- n )
+    '[ [ _ ?deep-nth CHAR: * = ] [ length 2 = ] bi* and ] assoc-filter values [ product ] map sum ;
+
+command-line get first <pathname> absolute-path pathname> utf8 file-lines dup part-map dup
 part-number-sum .
+swap gear-ratio-sum .
