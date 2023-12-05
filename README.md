@@ -12,10 +12,10 @@ Here is a list of all programming languages used by the contributors and the day
 
 | Day/Lang            | Java | Python | Kotlin | Rust | C | Elixir | Factor | Haskell | JavaScript | Perl | TypeScript | Go  | Ruby | Clojure |
 |---------------------|------|--------|--------|------|---|--------|--------|---------|------------|------|------------|-----|------|---------|
-| 01 - Trebuchet?!    | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          | (✅) | ✅    | ❌       |
-| 02 - Cube Conundrum | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          | ✅   | ✅    | ❌       |
+| 01 - Trebuchet?!    | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          | (✅) | ✅    | (✅)     |
+| 02 - Cube Conundrum | ✅    | ✅      | ✅      | ✅    | ✅ | ✅      | ✅      | ✅       | ✅          | ✅    | ✅          | ✅   | ✅    | ✅       |
 | 03 - Gear Ratios    | ✅    | ✅      | ❌      | ✅    | ✅ | ❌      | ✅      | ✅       | ❌          | ✅    | ✅          | ❌   | ❌    | ❌       |
-| 04 - Scratchcards   | ✅    | ✅      | ❌      | ✅    | ❌ | ❌      | ❌      | ✅       | ❌          | ❌    | ✅          | ❌   | ✅    | (✅)     |
+| 04 - Scratchcards   | ✅    | ✅      | ❌      | ✅    | ✅ | ❌      | ✅      | ✅       | ❌          | ✅    | ✅          | ❌   | ✅    | ✅     |
 | 05 - ???            | ❌    | ❌      | ❌      | ❌    | ❌ | ❌      | ❌      | ❌       | ❌          | ❌    | ❌          | ❌   | ❌    | ❌       |
 
 <!-- | XX - Day | ❌  | ❌     | ❌     | ❌  | ❌     | ❌   | ❌   | ❌  | ❌   | ❌   | ❌   | ❌     | ❌  | ❌      | ❌         | ❌   | ❌      | ❌         | ❌    | ❌  | ❌    | -->
