@@ -43,7 +43,3 @@ foreach my $seed_tuple(@seeds) {
 
 print("Part 1: " . part1() . "\n");
 print("Part 2: " . part2() . "\n");
-
-
-
-
