@@ -110,10 +110,4 @@ for seed in [seeds[w:w + 2] for w in range(0, len(seeds), 2)]:
     locations.append(low)
     print(f"Lowest for {seed} is {low}")
 
-expected = [35081694, 9622622, 299048714, 218618953, 218618953, 218618953, 201450167, 297052731, 10114991, 218618953]
-
-# for i, res in enumerate(expected):
-#     if res != locations[i]:
-#         print(f"Seed {i} is {locations[i]} instead of {res}")
-
 print(f"Part 2: {min(locations)}")
