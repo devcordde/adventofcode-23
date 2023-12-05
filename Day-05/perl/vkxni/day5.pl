@@ -20,7 +20,8 @@ my @locations;
 
 foreach my $seed(@seeds) {
     my $value=$seed;foreach my $step(@steps){my $old_result=$value;foreach my $f(@$step){my $result=step($value,$f->{"output"},$f->{"start"},$f->{"range"});if(defined $result){$value=$result;last;}}}
-    push @locations,$value;print("Seed: $seed, Location: $value\r\r\r");}my $min_location=(sort{$a<=>$b}@locations)[0];return $min_location;
+    push @locations,$value;print("Seed: $seed, Location: $value\r\r\r");}my $min_location=(sort{$a<=>$b}@locations)[0];
+    return $min_location;
 }
 
 sub part2 {
@@ -42,3 +43,7 @@ foreach my $seed_tuple(@seeds) {
 
 print("Part 1: " . part1() . "\n");
 print("Part 2: " . part2() . "\n");
+
+
+
+
