@@ -3,7 +3,7 @@ use warnings;
 
 open(my $fh,'<',"input.txt") or die "Cannot open file: $!";my $file_content=do{local$/;<$fh>};close($fh);
 
-my @splitfile = split("\n\n", $file_content);
+my @splitfile=split("\n\n", $file_content);
 
 sub step {my($input, $output, $start, $range)=@_;return $input>=$start&&$input<=$start+$range?$input-$start+$output:undef;} 
 
@@ -12,7 +12,7 @@ sub part1 {
     my @unprocessed_steps=map{[split("\n", $_)]}@splitfile[1..$#splitfile];my @steps;
 
 foreach my $unprocessed_step(@unprocessed_steps) {
-    my @step = map{my($output, $start, $range)=(split(' ',$_))[0, 1, 2];{"output"=>int($output),"start"=>int($start),"range"=>int($range)};}@{$unprocessed_step}[1..$#{$unprocessed_step}];
+    my @step=map{my($output, $start, $range)=(split(' ',$_))[0, 1, 2];{"output"=>int($output),"start"=>int($start),"range"=>int($range)};}@{$unprocessed_step}[1..$#{$unprocessed_step}];
     push @steps,\@step;
 }
 
