@@ -4,13 +4,13 @@ pub fn main() {
     let games = input.map(|game| {
         let (id, info) = game.split_once(": ").unwrap();
 
-        let id = id.split_once(" ").unwrap().1.parse::<u32>().unwrap();
+        let id = id.split_once(' ').unwrap().1.parse::<u32>().unwrap();
 
         let subsets = info.split("; ").map(|subset_info| {
             let mut subset = Subset::default();
 
             for cube in subset_info.split(", ") {
-                let (value, color) = cube.split_once(" ").unwrap();
+                let (value, color) = cube.split_once(' ').unwrap();
 
                 match color {
                     "red" => subset.red += value.parse::<u32>().unwrap(),
