@@ -11,10 +11,9 @@ public class Day06 {
 
     public static void main(final String[] args) throws IOException {
         final String[] input = input().trim().split("\n");
-        final List<Race> races = parseRaces(input[0], input[1]);
-
+        List<Race> races = parseRaces(input[0], input[1], true);
         solve(races);
-        combine(races);
+        races = parseRaces(input[0], input[1], false);
         solve(races);
     }
 
@@ -32,28 +31,14 @@ public class Day06 {
         return Files.readString(Path.of("input.txt"));
     }
 
-    private static void combine(final List<Race> races) {
-        final StringBuilder time = new StringBuilder();
-        final StringBuilder dist = new StringBuilder();
-        for (final Race race : races) {
-            time.append(race.time);
-            dist.append(race.distance);
-        }
-        races.clear();
-        races.add(new Race(
-                Long.parseLong(time.toString()),
-                Long.parseLong(dist.toString())
-        ));
-    }
-
-    private static List<Race> parseRaces(final String timeStr, final String distStr) {
-        final String[] timeSplit = timeStr.split("\\s+");
-        final String[] distSplit = distStr.split("\\s+");
+    private static List<Race> parseRaces(final String timeStr, final String distStr, final boolean noLimit) {
+        final String[] timeSplit = timeStr.split("\\s+", noLimit ? 0 : 2);
+        final String[] distSplit = distStr.split("\\s+", noLimit ? 0 : 2);
         final List<Race> races = new ArrayList<>();
         for (int i = 1; i < timeSplit.length; i++) {
             races.add(new Race(
-                    Long.parseLong(timeSplit[i]),
-                    Long.parseLong(distSplit[i])
+                    Long.parseLong(timeSplit[i].replaceAll("\\s+", "")),
+                    Long.parseLong(distSplit[i].replaceAll("\\s+", ""))
             ));
         }
         return races;
