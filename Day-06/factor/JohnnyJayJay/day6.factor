@@ -8,7 +8,7 @@ IN: aoc.day6
     [ R/ \d+/ all-matching-slices [ string>number ] map ] bi@ [ 2array ] 2map ;
 
 : win-opportunities ( race -- n )
-    first2 neg swap -1 quadratic [ ceiling ] [ floor ] bi* - - 1 >fixnum ;
+    first2 neg swap -1 quadratic [ ceiling ] [ floor ] bi* - 1 - >fixnum ;
 
 command-line get first <pathname> absolute-path pathname> utf8 file-lines first2
 [ parse-input [ win-opportunities ] map product . ]
