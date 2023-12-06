@@ -8,9 +8,7 @@ IN: aoc.day6
     [ R/ \d+/ all-matching-slices [ string>number ] map ] bi@ [ 2array ] 2map ;
 
 : win-opportunities ( race -- n )
-    first2 neg swap -1 quadratic
-    ! calculates the number of integers between the two solution, assumes that the two solutions are distinct
-    [ [ floor dup ] keep = [ 1 - ] when ] [ floor ] bi* - >fixnum ;
+    first2 neg swap -1 quadratic [ ceiling 1 - ] [ floor ] bi* - >fixnum ;
 
 command-line get first <pathname> absolute-path pathname> utf8 file-lines first2
 [ parse-input [ win-opportunities ] map product . ]
