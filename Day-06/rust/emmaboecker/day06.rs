@@ -1,5 +1,5 @@
 pub fn main() {
-    let mut input = include_str!("../../input/day06.txt").lines();
+    let mut input = include_str!("input.txt").lines();
 
     let times = input
         .next()
