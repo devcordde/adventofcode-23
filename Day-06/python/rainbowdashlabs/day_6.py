@@ -9,7 +9,7 @@ win_times = [len([charge for charge in range(time) if (time - charge) * charge >
 
 print(f"Part 1: {reduce(mul, win_times)}")
 
-time, distance = [int(e.strip().split(":")[1].replace(" ", "")) for e in open("e_input.txt").readlines()]
+time, distance = [int(e.strip().split(":")[1].replace(" ", "")) for e in open("input.txt").readlines()]
 
 # Could do range search here but... eeeh... CPU goes brrt
 print(f"Part 2 {len([charge for charge in range(time) if (time - charge) * charge > distance])}")

@@ -27,4 +27,4 @@ for charge in range(time, 0, -1):
         break
 
 print(f"Part 2 {upper - lower + 1}")
-print(f"Took {round(now() - start, 4)*1000} ms")
+print(f"Took {round(now() - start, 4) * 1000} ms")

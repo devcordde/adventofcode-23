@@ -51,4 +51,4 @@ while L != R:
 upper = L
 
 print(f"Part 2: {upper - lower + 1}")
-print(f"Took {round(now() - start, 4)*1000} ms")
+print(f"Took {round(now() - start, 4) * 1000} ms")
