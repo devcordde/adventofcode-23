@@ -55,13 +55,9 @@ public class Day07 {
 
     private static HandType determineType(final char[] hand) {
         final List<Integer> count = count(hand);
-        if (JOKERS) {
+        if (JOKERS && count.size() > 1) {
             final int jokers = count.remove(0);
-            if (count.isEmpty()) {
-                count.add(jokers);
-            } else {
-                count.set(count.size() - 1, count.get(count.size() - 1) + jokers);
-            }
+            count.set(count.size() - 1, count.get(count.size() - 1) + jokers);
         }
         return COUNT_TO_HAND_TYPE.get(count);
     }
