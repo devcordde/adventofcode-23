@@ -17,7 +17,9 @@ Here is a list of all programming languages used by the contributors and the day
 | 03 - Gear Ratios                     | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ✅   | ✅         | ❌   | ❌   | ❌      | ✅           |
 | 04 - Scratchcards                    | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ✅   | ✅         | ❌   | ✅   | ✅      | ✅           |
 | 05 - If You Give A Seed A Fertilizer | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | (✅)   | ❌      | ❌         | ✅   | ❌         | ❌   | ✅   | ❌      | ❌           |
-| 06 - Wait For It                     | ❌   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ❌   | ✅         | ❌   | ❌   | ❌      | ❌           |
+| 06 - Wait For It                     | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ❌   | ✅         | ❌   | ✅   | ❌      | ❌           |
+| 07 - Camel Cards                     | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ❌   | ❌         | ❌   | ✅   | ❌      | ❌           |
+| 08 - ???                             | ❌   | ❌     | ❌     | ❌   | ❌ | ❌     | ❌     | ❌      | ❌         | ❌   | ❌         | ❌   | ❌   | ❌      | ❌           |
 
 <!-- | XX - Day | ❌  | ❌     | ❌     | ❌  | ❌     | ❌   | ❌   | ❌  | ❌   | ❌   | ❌   | ❌     | ❌  | ❌      | ❌         | ❌   | ❌      | ❌         | ❌    | ❌  | ❌    | -->
 
