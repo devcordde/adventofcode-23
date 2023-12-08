@@ -21,7 +21,7 @@ def solve(current_nodes):
 
 lines = open("input8.txt").read().split("\n")
 sequence = lines.pop(0)
-nodes = functools.reduce(lambda x, y: {**x, **y},[{match.group(1): (match.group(2), match.group(3))} for node in lines[1:] if (match := re.search(r"(\w{3}) = \((\w{3}), (\w{3})\)", node))])
+nodes = functools.reduce(lambda x, y: {**x, **y}, [{match.group(1): (match.group(2), match.group(3))} for node in lines[1:] if (match := re.search(r"(\w{3}) = \((\w{3}), (\w{3})\)", node))])
 
 print(f"Part 1: {solve(['AAA'])[0]}")
 print(f"Part 2: {math.lcm(*solve([node for node in nodes.keys() if node.endswith('A')]))}")
