@@ -1,10 +1,8 @@
-def find_step(sequence: list[int], part2: bool) -> int:
+def find_step(sequence, part2):
     if sequence.count(0) == len(sequence):
         return 0
 
-    merged_sequence = []
-    for i in range(1, len(sequence)):
-        merged_sequence.append(sequence[i] - sequence[i - 1])
+    merged_sequence = [sequence[i] - sequence[i - 1] for i in range(1, len(sequence))]
 
     if part2:
         return sequence[0] - find_step(merged_sequence, True)
