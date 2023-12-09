@@ -1,4 +1,4 @@
-def find_step_size(sequence: list[int], part2: bool) -> int:
+def find_step(sequence: list[int], part2: bool) -> int:
     if sequence.count(0) == len(sequence):
         return 0
 
@@ -7,11 +7,11 @@ def find_step_size(sequence: list[int], part2: bool) -> int:
         merged_sequence.append(sequence[i] - sequence[i - 1])
 
     if part2:
-        return sequence[0] - find_step_size(merged_sequence, True)
+        return sequence[0] - find_step(merged_sequence, True)
     else:
-        return sequence[-1] + find_step_size(merged_sequence, False)
+        return sequence[-1] + find_step(merged_sequence, False)
 
 
 sequences = [list(map(lambda x: int(x), line.split())) for line in open("input9.txt").read().split("\n")]
-print(f"Part 1: {sum(map(lambda sequence: find_step_size(sequence, False), sequences))}")
-print(f"Part 2: {sum(map(lambda sequence: find_step_size(sequence, True), sequences))}")
+print(f"Part 1: {sum(map(lambda sequence: find_step(sequence, False), sequences))}")
+print(f"Part 2: {sum(map(lambda sequence: find_step(sequence, True), sequences))}")
