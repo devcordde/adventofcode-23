@@ -3,7 +3,7 @@
   (:require [clojure.string :as str]))
 
 (defn parse-input [s]
-  (mapv #(mapv parse-long (str/split % #"\s+")) (str/split-lines s)))
+  (map #(mapv parse-long (str/split % #"\s+")) (str/split-lines s)))
 
 (defn diff-seq [history]
   (->> history
@@ -24,7 +24,7 @@
 (defn extrapolate [histories]
   (->> histories
        (map diff-seq)
-       (map (juxt extrapolate-prev extrapolate-next))
+       (map (juxt extrapolate-next extrapolate-prev))
        (reduce (partial mapv +))))
 
 (defn -main [input-file]
