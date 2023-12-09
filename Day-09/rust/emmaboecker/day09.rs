@@ -1,5 +1,5 @@
 pub fn main() {
-    let input = include_str!("../../input/day09.txt").lines();
+    let input = include_str!("input.txt").lines();
 
     let numbers = input
         .map(|line| {

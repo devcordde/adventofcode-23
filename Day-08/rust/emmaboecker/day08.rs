@@ -2,7 +2,7 @@ use std::collections::HashMap;
 use std::hash::Hash;
 
 pub fn main() {
-    let mut input = include_str!("../../input/day08.txt").lines();
+    let mut input = include_str!("input.txt").lines();
 
     let instructions = input.next().unwrap().chars();
 
