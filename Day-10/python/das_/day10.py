@@ -1,6 +1,6 @@
 import re
 
-lines = open("input10.txt").read().split("\n")
+lines = open("input.txt").read().split("\n")
 
 for y, element in enumerate(lines):
     if element.count("S") == 1:
@@ -17,9 +17,9 @@ if lines[y + 1][x] in ["|", "L", "J"]:
 if lines[y - 1][x] in ["|", "7", "F"]:
     current_positions.append(((x, y - 1), (x, y)))
 
+tiles = {(x, y), current_positions[0][0], current_positions[1][0]}
 mapping = {"-": [(1, 0), (-1, 0)], "|": [(0, 1), (0, -1)], "7": [(0, 1), (-1, 0)], "L": [(0, -1), (1, 0)], "F": [(1, 0), (0, 1)], "J": [(0, -1), (-1, 0)]}
 counter = 1
-tiles = {(x, y), current_positions[0][0], current_positions[1][0]}
 
 while current_positions[0][0] != current_positions[1][0]:
     counter += 1
@@ -36,12 +36,13 @@ area = 0
 for y in range(sorted_tiles[0][1], sorted_tiles[-1][1]):
     inside = False
     for x in range(min(filter(lambda z: z[1] == y, sorted_tiles), key=lambda z: z[0])[0], max(filter(lambda z: z[1] == y, sorted_tiles), key=lambda z: z[0])[0]):
-        if (x, y) in sorted_tiles:
+        if (x, y) in tiles:
             if lines[y][x] == "-":
                 continue
-                
+
             if not re.match(r"^(L-*7)|(F-*J)", lines[y][x:]):
                 inside = not inside
+
         elif inside:
             area += 1
 
