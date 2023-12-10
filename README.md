@@ -10,16 +10,18 @@ Hier ist eine Liste mit allen von Beitragenden verwendeten Programmiersprachen u
 
 Here is a list of all programming languages used by the contributors and the days that were solved with them:
 
-| Day/Lang                             | Java | Python | Kotlin | Rust | C  | Elixir | Factor | Haskell | JavaScript | Perl | TypeScript | Go   | Ruby | Clojure | x86 Assembly |
-|--------------------------------------|------|--------|--------|------|----|--------|--------|---------|------------|------|------------|------|------|---------|--------------|
-| 01 - Trebuchet?!                     | ✅   | ✅     | ✅     | ✅   | ✅ | ✅     | ✅     | ✅      | ✅         | ✅   | ✅         | (✅) | ✅   | (✅)    | ✅           |
-| 02 - Cube Conundrum                  | ✅   | ✅     | ✅     | ✅   | ✅ | ✅     | ✅     | ✅      | ✅         | ✅   | ✅         | ✅   | ✅   | ✅      | ✅           |
-| 03 - Gear Ratios                     | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ✅   | ✅         | ❌   | ❌   | ❌      | ✅           |
-| 04 - Scratchcards                    | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ✅   | ✅         | ❌   | ✅   | ✅      | ✅           |
-| 05 - If You Give A Seed A Fertilizer | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | (✅)   | ❌      | ❌         | ✅   | ❌         | ❌   | ✅   | ❌      | ❌           |
-| 06 - Wait For It                     | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ❌   | ✅         | ❌   | ✅   | ❌      | ❌           |
-| 07 - Camel Cards                     | ✅   | ✅     | ❌     | ✅   | ✅ | ❌     | ✅     | ✅      | ❌         | ❌   | ❌         | ❌   | ✅   | ❌      | ❌           |
-| 08 - ???                             | ❌   | ❌     | ❌     | ❌   | ❌ | ❌     | ❌     | ❌      | ❌         | ❌   | ❌         | ❌   | ❌   | ❌      | ❌           |
+| Day/Lang                             | Java | Python | Rust | C | Factor | Haskell | x86 Assembly | Ruby | Clojure | Perl | TypeScript | Kotlin | Elixir | JavaScript | Go  |
+|--------------------------------------|------|--------|------|---|--------|---------|--------------|------|---------|------|------------|--------|--------|------------|-----|
+| 01 - Trebuchet?!                     | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | (✅)     | ✅    | ✅          | ✅      | ✅      | ✅          | (✅) |
+| 02 - Cube Conundrum                  | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | ✅       | ✅    | ✅          | ✅      | ✅      | ✅          | ✅   |
+| 03 - Gear Ratios                     | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ❌    | ❌       | ✅    | ✅          | ❌      | ❌      | ❌          | ❌   |
+| 04 - Scratchcards                    | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | ✅       | ✅    | ✅          | ❌      | ❌      | ❌          | ❌   |
+| 05 - If You Give A Seed A Fertilizer | ✅    | ✅      | ✅    | ✅ | (✅)    | ❌       | ✅            | ✅    | ❌       | ✅    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 06 - Wait For It                     | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | ❌       | ❌    | ✅          | ❌      | ❌      | ❌          | ❌   |
+| 07 - Camel Cards                     | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 08 - Haunted Wasteland               | ✅    | ✅      | ✅    | ✅ | ❌      | ✅       | ✅            | ✅    | ✅       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 09 - Mirage Maintenance              | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ❌            | ❌    | ✅       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 10 - ???                             | ❌    | ❌      | ❌    | ❌ | ❌      | ❌       | ❌            | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
 
 <!-- | XX - Day | ❌  | ❌     | ❌     | ❌  | ❌     | ❌   | ❌   | ❌  | ❌   | ❌   | ❌   | ❌     | ❌  | ❌      | ❌         | ❌   | ❌      | ❌         | ❌    | ❌  | ❌    | -->
 
