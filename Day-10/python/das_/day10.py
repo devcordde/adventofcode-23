@@ -39,10 +39,8 @@ for y in range(sorted_tiles[0][1], sorted_tiles[-1][1]):
         if (x, y) in sorted_tiles:
             if lines[y][x] == "-":
                 continue
-
-            inside = not inside
-
-            if re.match(r"^(L-*7)|(F-*J)", lines[y][x:]):
+                
+            if not re.match(r"^(L-*7)|(F-*J)", lines[y][x:]):
                 inside = not inside
         elif inside:
             area += 1
