@@ -10,18 +10,23 @@ Hier ist eine Liste mit allen von Beitragenden verwendeten Programmiersprachen u
 
 Here is a list of all programming languages used by the contributors and the days that were solved with them:
 
-| Day/Lang                             | Java | Python | Rust | C | Factor | Haskell | x86 Assembly | Ruby | Clojure | Perl | TypeScript | Kotlin | Elixir | JavaScript | Go  |
-|--------------------------------------|------|--------|------|---|--------|---------|--------------|------|---------|------|------------|--------|--------|------------|-----|
-| 01 - Trebuchet?!                     | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | (✅)     | ✅    | ✅          | ✅      | ✅      | ✅          | (✅) |
-| 02 - Cube Conundrum                  | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | ✅       | ✅    | ✅          | ✅      | ✅      | ✅          | ✅   |
-| 03 - Gear Ratios                     | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ❌    | ❌       | ✅    | ✅          | ❌      | ❌      | ❌          | ❌   |
-| 04 - Scratchcards                    | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | ✅       | ✅    | ✅          | ❌      | ❌      | ❌          | ❌   |
-| 05 - If You Give A Seed A Fertilizer | ✅    | ✅      | ✅    | ✅ | (✅)    | ❌       | ✅            | ✅    | ❌       | ✅    | ❌          | ❌      | ❌      | ❌          | ❌   |
-| 06 - Wait For It                     | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | ❌       | ❌    | ✅          | ❌      | ❌      | ❌          | ❌   |
-| 07 - Camel Cards                     | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ✅            | ✅    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
-| 08 - Haunted Wasteland               | ✅    | ✅      | ✅    | ✅ | ❌      | ✅       | ✅            | ✅    | ✅       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
-| 09 - Mirage Maintenance              | ✅    | ✅      | ✅    | ✅ | ✅      | ✅       | ❌            | ❌    | ✅       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
-| 10 - ???                             | ❌    | ❌      | ❌    | ❌ | ❌      | ❌       | ❌            | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| Day/Lang                             | Python | Rust | C   | x86 Assembly | Java | Factor | Haskell | Ruby | Clojure | Perl | TypeScript | Kotlin | Elixir | JavaScript | Go  |
+|--------------------------------------|--------|------|-----|--------------|------|--------|---------|------|---------|------|------------|--------|--------|------------|-----|
+| 01 - Trebuchet?!                     | ✅      | ✅    | ✅   | ✅            | ✅    | ✅      | ✅       | ✅    | (✅)     | ✅    | ✅          | ✅      | ✅      | ✅          | (✅) |
+| 02 - Cube Conundrum                  | ✅      | ✅    | ✅   | ✅            | ✅    | ✅      | ✅       | ✅    | ✅       | ✅    | ✅          | ✅      | ✅      | ✅          | ✅   |
+| 03 - Gear Ratios                     | ✅      | ✅    | ✅   | ✅            | ✅    | ✅      | ✅       | ❌    | ❌       | ✅    | ✅          | ❌      | ❌      | ❌          | ❌   |
+| 04 - Scratchcards                    | ✅      | ✅    | ✅   | ✅            | ✅    | ✅      | ✅       | ✅    | ✅       | ✅    | ✅          | ❌      | ❌      | ❌          | ❌   |
+| 05 - If You Give A Seed A Fertilizer | ✅      | ✅    | ✅   | ✅            | ✅    | (✅)    | ❌       | ✅    | ❌       | ✅    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 06 - Wait For It                     | ✅      | ✅    | ✅   | ✅            | ✅    | ✅      | ✅       | ✅    | ❌       | ❌    | ✅          | ❌      | ❌      | ❌          | ❌   |
+| 07 - Camel Cards                     | ✅      | ✅    | ✅   | ✅            | ✅    | ✅      | ✅       | ✅    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 08 - Haunted Wasteland               | ✅      | ✅    | ✅   | ✅            | ✅    | ❌      | ✅       | ✅    | ✅       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 09 - Mirage Maintenance              | ✅      | ✅    | ✅   | ✅            | ✅    | ✅      | ✅       | ❌    | ✅       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 10 - Pipe Maze                       | ✅      | ✅    | ✅   | ✅            | ✅    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 11 - Cosmic Expansion                | ✅      | ✅    | ✅   | ✅            | ✅    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 12 - Hot Springs                     | (✅)    | (✅)  | (✅) | ✅            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 13 - Point of Incidence              | ✅      | ✅    | ❌   | ✅            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 14 - Parabolic Reflector Dish        | ✅      | ✅    | ❌   | ❌            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 15 - ???                             | ❌      | ❌    | ❌   | ❌            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
 
 <!-- | XX - Day | ❌  | ❌     | ❌     | ❌  | ❌     | ❌   | ❌   | ❌  | ❌   | ❌   | ❌   | ❌     | ❌  | ❌      | ❌         | ❌   | ❌      | ❌         | ❌    | ❌  | ❌    | -->
 
