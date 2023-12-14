@@ -124,4 +124,4 @@ while grid not in grids:
 
 index = grids.index(grid) + ((1000000000 - grids.index(grid)) % (len(grids) - grids.index(grid)))
 
-write(f"After running 100.00.00.000 iterations, the total load is <{compute_load(grids[index])}>.")
+write(f"After running 1,000,000,000 iterations, the total load is <{compute_load(grids[index])}>.")
