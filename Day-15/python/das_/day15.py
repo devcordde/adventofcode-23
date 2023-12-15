@@ -10,7 +10,7 @@ boxes = {}
 for i in range(256): boxes.setdefault(i, [])
 
 for sequence in sequences:
-    if sequence.count("-") == 1:
+    if "-" in sequence:
         label = sequence[:-1]
         box = hash(label)
 
