@@ -2,10 +2,8 @@
 #include <string.h>
 
 #define file "./14input.txt" 
-#define testfile "./14test.txt"
 #define LINE_SIZE 102
 #define LINES 100
-//#define LINES 10
 
 int readInput(char prompts[][LINE_SIZE]){
 	FILE *input = fopen(file, "r");
