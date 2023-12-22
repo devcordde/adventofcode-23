@@ -25,7 +25,7 @@ Here is a list of all programming languages used by the contributors and the day
 | 11 - Cosmic Expansion                | ✅      | ✅    | ✅   | ✅            | ✅    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
 | 12 - Hot Springs                     | (✅)    | (✅)  | (✅) | ✅            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
 | 13 - Point of Incidence              | ✅      | ✅    | ❌   | ✅            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
-| 14 - Parabolic Reflector Dish        | ✅      | ✅    | ❌   | ✅            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
+| 14 - Parabolic Reflector Dish        | ✅      | ✅    | ✅   | ✅            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
 | 15 - Lens Library                    | ✅      | ✅    | ❌   | ✅            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
 | 16 - The Floor Will Be Lava          | ✅      | ✅    | ❌   | ❌            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
 | 17 - Clumsy Crucible                 | ❌      | ❌    | ❌   | ❌            | ❌    | ❌      | ❌       | ❌    | ❌       | ❌    | ❌          | ❌      | ❌      | ❌          | ❌   |
